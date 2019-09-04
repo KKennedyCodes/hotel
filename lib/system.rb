@@ -4,13 +4,13 @@ require_relative 'reservation_date.rb'
 
 module Hotel
   class System
-    attr_reader #:room_num, :start_date, :end_date, :rate
+    attr_reader #:room_num, :start_date, :end_date#, :rate
     
-    def initialize #:room_num, :start_date, :end_date, :rate
+    def initialize #:room_num, :start_date, :end_date#, :rate
       # @room_num = room_num
-      # @start_date = start_date
-      # @end_date = end_date
-      # @rate = rate
+      # dates = Hotel::Reservation_Date(start_date, end_date)
+      # @qty_of_nights()
+      # @included_dates
     end
     
     def room_list

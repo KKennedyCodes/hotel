@@ -3,7 +3,7 @@ module Hotel
     attr_reader :room_num, :rate #:RATE
     # RATE = 200.0 #Constant - Same Charge for Every Room
     
-    def initialize room_num
+    def initialize room_num = nil
       unless room_num.to_i > 0
         raise ArgumentError.new("Invalid Room Number - Must Be 1-20. I got #{room_num}")
       end
