@@ -14,7 +14,7 @@ module Hotel
     end
     
     def check_date_formatting(date)
-      date_formatting = /\d\d\d\d\-\d\d\-\d\d/
+      date_formatting = /\d{3}\-\d\d\-\d\d/
       formatting = date_formatting.match(date)
       unless formatting != nil
         raise ArgumentError.new("Invalid Date Formatting, Should Be Formatted as: YYYY-MM-DD")
