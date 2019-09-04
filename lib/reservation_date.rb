@@ -40,6 +40,15 @@ module Hotel
       end
     end
     
+    def dates_to_store
+      reservation_dates = []
+      check_in = @start_date
+      while check_in <= @end_date
+        reservation_dates << check_in
+        check_in += 1
+      end
+      return reservation_dates
+    end
   end
 end
 
