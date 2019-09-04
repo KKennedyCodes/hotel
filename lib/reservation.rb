@@ -1,16 +1,17 @@
 require 'date'
 require_relative 'reservation_date'
 require_relative 'room'
+require 'pry'
 
 module Hotel
   class Reservation
-    attr_reader :start_date, :end_date
+    attr_reader :start_date, :end_date, :qty_of_nights, :dates_in_stay
     def initialize start_date, end_date
       @room_num = nil
       @rate = nil
-      reservation_dates = Hotel::Reservation_Date(start_date, end_date)
+      reservation_dates = Hotel::Reservation_Date.new(start_date, end_date)
       @qty_of_nights = reservation_dates.date_range
-      @dates_in_stay = reservation_dates.dates_to_store
+      @dates_in_stay = reservation_dates.dates_to_store 
     end
     
     #This may be moved to system
@@ -31,3 +32,5 @@ module Hotel
     
   end
 end
+
+reservation = Hotel::Reservation.new("2001-02-03", "2001-02-05")
