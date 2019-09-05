@@ -5,33 +5,20 @@ describe "Reservation" do
   describe "Initialize" do
     it "Creates an Instance of Reservation" do
       
-      reservation = Hotel::Reservation.new("2001-02-03", "2001-02-05")
-      reservation.must_be_kind_of Hotel::Reservation
+      reservation = Hotel::Reservation.new(start_date: "2001-02-03", end_date: "2001-02-05")
+      reservation.must_be_kind_of Hotel::Reservation  
     end
     
     it "Keeps Track of Qty of Nights" do
-      reservation = Hotel::Reservation.new("2001-02-03", "2001-02-05")
+      reservation = Hotel::Reservation.new(start_date: "2001-02-03", end_date: "2001-02-05")
       reservation.must_respond_to :qty_of_nights
       reservation.qty_of_nights.must_equal 2
-    end
-    
-    it "Keeps Track of Dates in Stay" do
-      reservation = Hotel::Reservation.new("2001-02-03", "2001-02-05")
-      reservation.must_respond_to :dates_in_stay
-      reservation.dates_in_stay.must_be_kind_of Array
     end
     
     # it "Keeps Track of Room Rate" do
     #   rate = 150.00
     #   reservation = Hotel::Reservation.new(2, "2001-02-03", "2001-02-05", rate)
     #   reservation.rate.must_equal rate
-    # end 
-    
-    # it "Keeps Track of Reservation Dates" do
-    #   start_date = "2001-02-03"
-    #   end_date = "2001-02-05"
-    #   dates = Hotel::Reservation.new(start_date: start_date, end_date: end_date)
-    #   dates.must_be_type_of Array
     # end 
     
     # it "Keeps Track of Total Cost" do
@@ -51,7 +38,7 @@ describe "Reservation" do
       start_date = "2001-02-03"
       end_date = "2001-02-05"
       rate = 200
-      @reservation = Hotel::Reservation.new(room_num, start_date, end_date, rate)
+      @reservation = Hotel::Reservation.new(room_num:, start_date:, end_date:, rate:)
     end
     
     # it "Adds a Reservation" do

@@ -60,10 +60,5 @@ describe "Date" do
       range.date_range.must_equal 2
     end
     
-    it "Returns an Array of Dates in the Reservation" do
-      range = Hotel::Reservation_Date.new("2001-02-01", "2001-02-03")
-      range.dates_to_store.length.must_equal 3
-    end
-    
   end
 end

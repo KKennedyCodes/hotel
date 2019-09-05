@@ -17,5 +17,9 @@ module Hotel
       return Hotel::Room.all
     end
     
+    def add_reservation(new_reservation)
+      reservations << new_reservation
+    end
+    
   end
 end
