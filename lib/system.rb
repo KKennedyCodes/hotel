@@ -4,22 +4,23 @@ require_relative 'reservation_date.rb'
 
 module Hotel
   class System
-    attr_reader #:room_num, :start_date, :end_date#, :rate
+    attr_reader :rooms, :reservations
     
-    def initialize #:room_num, :start_date, :end_date#, :rate
-      # @room_num = room_num
-      # dates = Hotel::Reservation_Date(start_date, end_date)
-      # @qty_of_nights()
-      # @included_dates
+    def initialize# :room_num, :start_date, :end_date, :rate
+      @rooms = Hotel::Room.all
+      @reservations = Array.new
     end
     
-    def room_list
-      return Hotel::Room.all
-    end
+    # def pre-reservation_validation
+    #   #search through current reservations - find available room
+    # end
     
-    def add_reservation(new_reservation)
-      reservations << new_reservation
-    end
+    # def add_reservation(new_reservation)
+    #   reservations << new_reservation
+    # end
+    # def room_list
+    #   return Hotel::Room.all
+    # end
     
   end
 end

@@ -32,21 +32,21 @@ describe "Reservation" do
     
   end
   
-  describe "Reservation Methods" do
-    before do
-      room_num = 2
-      start_date = "2001-02-03"
-      end_date = "2001-02-05"
-      rate = 200
-      @reservation = Hotel::Reservation.new(room_num:, start_date:, end_date:, rate:)
-    end
-    
-    # it "Adds a Reservation" do
-    #   no_reservations = @reservation.log.length
-    #   new_reservation = @reservation.add_reservation
-    #   new_reservation = @reservation.log.length
-    #   new_reservation.must_equal (no_reservations + 1)
-    
-    # end
-  end
+  # describe "Reservation Methods" do
+  #   before do
+  #     room_num = 2
+  #     start_date = "2001-02-03"
+  #     end_date = "2001-02-05"
+  #     rate = 200
+  #     @reservation = Hotel::Reservation.new(room_num:, start_date:, end_date:, rate:)
+  #   end
+  
+  # it "Adds a Reservation" do
+  #   no_reservations = @reservation.log.length
+  #   new_reservation = @reservation.add_reservation
+  #   new_reservation = @reservation.log.length
+  #   new_reservation.must_equal (no_reservations + 1)
+  
+  # end
+  #end
 end

@@ -20,9 +20,6 @@ module Hotel
     #   total_cost = Hotel::Reservation_Date.reservation_duration * @rate
     #   return total_cost
     # end
-    def finds_available_room
-    end
-    
     def calculates_total_cost
     end
     
