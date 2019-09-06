@@ -12,15 +12,13 @@ module Hotel
       @new_reservation = nil #temporary varialbe for booking
     end
     
-    # def add_reservation(new_reservation)
-    #   reservations << new_reservation
-    # end
+    def room_list
+      return Hotel::Room.all
+    end
     
-    # def room_list
-    #   return Hotel::Room.all
-    # end
     def create_reservation(start_date, end_date)
-      @new_reservation = Hotel::Reservation.new(start_date: start_date, end_date: end_date)
+      #@new_reservation = Hotel::Reservation.new(start_date: start_date, end_date: end_date)
+      Hotel::Reservation.new(start_date: start_date, end_date: end_date)
     end
     
     def add_reservation(new_reservation)
@@ -39,7 +37,13 @@ module Hotel
     #   i = 0
     #   while i < @reservations.length
     #   end
+    def self.all
+      return @reservations
+    end
     
+    def self.find
+      
+    end 
     
   end
 end
