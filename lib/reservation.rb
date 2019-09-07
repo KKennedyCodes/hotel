@@ -33,15 +33,15 @@ module Hotel
       return @reservations
     end
     
-    def self.find(date_range_object)
-      reservation_list = @reservations.all
-      reservation_list.each do |reservation|
-        if reservation.reservation_date_range == date_range_object
-          return reservation
-        end
-      end
-      return nil
-    end 
+    # def self.find(date_range_object)
+    #   reservation_list = @reservations.all
+    #   reservation_list.each do |reservation|
+    #     if reservation.reservation_date_range == date_range_object
+    #       return reservation
+    #     end
+    #   end
+    #   return nil
+    # end 
     
     
   end

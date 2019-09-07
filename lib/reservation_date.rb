@@ -6,11 +6,8 @@ module Hotel
     attr_reader :start_date, :end_date 
     
     def initialize start_date, end_date
-      check_date_formatting(start_date)
-      @start_date = check_date_validity(start_date)
-      
-      check_date_formatting(end_date)
-      @end_date = check_date_validity(end_date)
+      @start_date = check_date_validity(check_date_formatting(start_date))
+      @end_date = check_date_validity(check_date_formatting(end_date))
     end
     
     def check_date_formatting(date)
