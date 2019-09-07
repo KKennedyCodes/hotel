@@ -8,6 +8,7 @@ module Hotel
     def initialize start_date, end_date
       @start_date = check_date_validity(check_date_formatting(start_date))
       @end_date = check_date_validity(check_date_formatting(end_date))
+      @date_range = date_range
     end
     
     def check_date_formatting(date)
@@ -29,11 +30,25 @@ module Hotel
     end
     
     def date_range
-      if @start_date > @end_date
+      if @start_date > @end_date || @start_date == @end_date
         raise ArgumentError.new("Invalid Date Range")
       else
         duration = (@end_date - @start_date).to_i
         return duration
+      end
+    end
+    
+    def self.overlap_check (new_res_dates, booked_res_dates)
+      if new_res_dates.start_date == booked_res_dates.start_date
+        return false
+      elsif new_res_dates.start_date > booked_res_dates.start_date && new_res_dates.start_date < booked_res_dates.end_date
+        return false
+      elsif new_res_dates.start_date < booked_res_dates.start_date && new_res_dates.end_date > booked_res_dates.end_date
+        return false
+      elsif new_res_dates.start_date < booked_res_dates.start_date && (new_res_dates.end_date < booked_res_dates.end_date && new_res_dates.end_date > booked_res_dates.start_date)
+        return false
+      else
+        return true
       end
     end
     
