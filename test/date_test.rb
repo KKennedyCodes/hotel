@@ -67,8 +67,8 @@ describe "It Checks for Booking Dates Overlap" do
     @new_res_2 = Hotel::Reservation_Date.new(dates[3], dates[5]) #Start Date in Middle of Booking
     @new_res_3 = Hotel::Reservation_Date.new(dates[1], dates[5]) #Starts Before, Ends After
     @new_res_4 = Hotel::Reservation_Date.new(dates[1], dates[3]) #Starts Before, Ends in Middle of Booking
-    @new_res_4 = Hotel::Reservation_Date.new(dates[1], dates[2]) #Ends Same Day as Start
-    @new_res_5 = Hotel::Reservation_Date.new(dates[4], dates[6]) #Starts and Same Day as End
+    @new_res_5 = Hotel::Reservation_Date.new(dates[1], dates[2]) #Ends Same Day as Start
+    @new_res_6 = Hotel::Reservation_Date.new(dates[4], dates[6]) #Starts and Same Day as End
   end
   it "Checks for Same Start Date" do
     Hotel::Reservation_Date.overlap_check(@new_res_1, @booked_range).must_equal false
@@ -82,8 +82,11 @@ describe "It Checks for Booking Dates Overlap" do
   it "Checks for Starting Before, but Ends in the Middle" do
     Hotel::Reservation_Date.overlap_check(@new_res_4, @booked_range).must_equal false
   end
-  it "Checks for Starting Before, but Ending After" do
-    Hotel::Reservation_Date.overlap_check(@new_res_3, @booked_range).must_equal false
+  it "Ends Same Day as Start" do
+    Hotel::Reservation_Date.overlap_check(@new_res_5, @booked_range).must_equal true
+  end
+  it "Starts Same Day as End" do
+    Hotel::Reservation_Date.overlap_check(@new_res_6, @booked_range).must_equal true
   end
 end
 end

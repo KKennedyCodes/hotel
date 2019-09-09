@@ -39,13 +39,15 @@ module Hotel
     end
     
     def self.overlap_check (new_res_dates, booked_res_dates)
-      if new_res_dates.start_date == booked_res_dates.start_date
+      if new_res_dates.start_date == booked_res_dates.start_date #Check if Start on Same Day
         return false
-      elsif new_res_dates.start_date > booked_res_dates.start_date && new_res_dates.start_date < booked_res_dates.end_date
+      elsif new_res_dates.start_date > booked_res_dates.start_date && new_res_dates.start_date < booked_res_dates.end_date #Booked in Middle, Start
         return false
-      elsif new_res_dates.start_date < booked_res_dates.start_date && new_res_dates.end_date > booked_res_dates.end_date
+      elsif new_res_dates.end_date > booked_res_dates.start_date && new_res_dates.end_date < booked_res_dates.end_date #Booked in Middle, End
         return false
-      elsif new_res_dates.start_date < booked_res_dates.start_date && (new_res_dates.end_date < booked_res_dates.end_date && new_res_dates.end_date > booked_res_dates.start_date)
+      elsif new_res_dates.start_date < booked_res_dates.start_date && new_res_dates.end_date > booked_res_dates.end_date #Booked Over Entire Exising Reservation
+        return false
+      elsif new_res_dates.start_date < booked_res_dates.start_date && new_res_dates.end_date < booked_res_dates.end_date && new_res_dates.end_date > booked_res_dates.start_date
         return false
       else
         return true
