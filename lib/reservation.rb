@@ -5,29 +5,19 @@ require 'pry'
 
 module Hotel
   class Reservation
-    attr_reader :reservation_date_range, :qty_of_nights
-    def initialize room_num: nil, rate: nil, start_date:, end_date:
-      @room_num = nil
-      @rate = nil
+    attr_reader :reservation_date_range, :qty_of_nights, :rate, :room_num, :cost
+    def initialize room_num: nil, rate: 200, start_date:, end_date:
+      @room_num = room_num
+      @rate = rate
       @reservation_date_range = Hotel::Reservation_Date.new(start_date, end_date)
       @qty_of_nights = @reservation_date_range.date_range
-      #@dates_in_stay = reservation_date_range.dates_to_store
-      #move this to system @reservations = [] 
+      @cost = total_cost
     end
     
-    #This may be moved to system
-    # def total_cost
-    #   total_cost = Hotel::Reservation_Date.reservation_duration * @rate
-    #   return total_cost
-    # end
-    def calculates_total_cost
+    def total_cost
+      total_cost = @qty_of_nights * @rate
+      return total_cost
     end
-    
-    
-    #examples:
-    # def add_trip(trip)
-    #   @trips << trip
-    # end
     
     def self.all
       return @reservations

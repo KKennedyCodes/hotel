@@ -43,6 +43,7 @@ describe "System" do
           @hotel_system.add_reservation(@hotel_system.create_reservation(start_date: "2014-02-04", end_date: "2014-02-05"))
         end
         @hotel_system.reservations.must_be_kind_of Array
+        @hotel_system.reservations.length.must_equal 5
       end
     end
     
@@ -73,14 +74,13 @@ describe "System" do
         @hotel_system.reservations.last.reservation_date_range.end_date.must_equal @last_date.end_date
       end
       
-      it "Can Return a List of Booking for a Particular Date" do
+      it "Can Return a List of Bookings for a Particular Date" do
         hotel = @hotel_system.find_booked(@booking_date)
         hotel.must_be_kind_of Array
         hotel.length.must_equal 1
       end
       
       # it "Can Return a List of Bookings not Included in a Specific Date" do
-      
       #   hotel = @hotel_system.find_available(@booking_date)
       #   hotel.must_be_kind_of Array
       #   hotel.length.must_equal 4

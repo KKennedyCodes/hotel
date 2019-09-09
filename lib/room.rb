@@ -1,17 +1,15 @@
 module Hotel
   class Room
-    attr_reader :room_num, :rate #:RATE
-    # RATE = 200.0 #Constant - Same Charge for Every Room
+    attr_reader :room_num, :rate, :RATE
+    
+    RATE = 200.0
     
     def initialize room_num = nil
       unless room_num.to_i > 0
         raise ArgumentError.new("Invalid Room Number - Must Be 1-20. I got #{room_num}")
       end
       @room_num = room_num
-      # unless RATE.to_f > 0
-      #   raise ArgumentError.new("Invalid Room Rate - Must Be a Postive Value Greater Than Zero. I got #{rate}")
-      # end
-      @rate = 200.0#RATE
+      @rate = RATE
     end
     
     def self.all
