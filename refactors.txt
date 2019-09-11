@@ -1,0 +1,7 @@
+For Refactoring Hotel
+
+- Need to Find a Better Way to Incorporate Rooms so that the Rooms can Communicate Better with the other classes.
+
+- Need to Complete the Reservation Process to Find Rooms Available and Print Out Room Availability Lists
+
+- Need to Create a Child Class of Reservation to serve as the Block Reservation Option
